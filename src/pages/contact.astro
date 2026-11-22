@@ -1,0 +1,526 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  title="Contact | Chris Kimunya"
+  description="Get in touch with Chris Kimunya about your next production."
+>
+  <main class="contact-page">
+    <header class="contact-topbar">
+      <a class="contact-home" href="/" aria-label="Back to home">
+        <span aria-hidden="true">←</span>
+        <span>Home</span>
+      </a>
+      <a class="contact-monogram" href="/" aria-label="Chris Kimunya home">
+        C
+      </a>
+    </header>
+
+    <section class="contact-intro" aria-labelledby="contact-title">
+      <p class="contact-eyebrow">Contact</p>
+      <h1 id="contact-title">
+        Let’s build
+        <br />
+        <span>something</span>
+        <br />
+        amazing.
+      </h1>
+      <p class="contact-intro-copy">
+        Have a production in mind? Tell me what you’re looking for and let’s
+        make it happen.
+      </p>
+    </section>
+
+    <section class="contact-card" aria-labelledby="contact-form-title">
+      <h2 id="contact-form-title">
+        Reach out today <span aria-hidden="true">✦</span>
+      </h2>
+      <p class="contact-direct-label">Prefer email?</p>
+      <a class="contact-email" href="mailto:chriskimunya@gmail.com">
+        chriskimunya@gmail.com
+      </a>
+
+      <div class="contact-divider" aria-hidden="true"></div>
+      <p class="contact-form-intro">Leave a brief message</p>
+
+      <form
+        id="contact-form"
+        method="POST"
+        action="https://formspree.io/f/mvkabera"
+      >
+        <input type="hidden" name="_subject" value="New production inquiry" />
+
+        <div class="contact-field-row">
+          <label class="contact-field">
+            <span>Your name</span>
+            <input
+              name="name"
+              type="text"
+              autocomplete="name"
+              placeholder="Your name"
+              required
+            />
+          </label>
+
+          <label class="contact-field">
+            <span>Email</span>
+            <input
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="Email"
+              required
+            />
+          </label>
+        </div>
+
+        <label class="contact-field contact-message-field">
+          <span>Briefly describe your project</span>
+          <textarea
+            name="message"
+            rows="3"
+            placeholder="What are you working on?"
+            required
+          ></textarea>
+        </label>
+
+        <fieldset class="contact-options">
+          <legend>I’m looking for...</legend>
+          <div class="contact-option-list">
+            <label class="contact-option">
+              <input type="radio" name="inquiry" value="first-ad" required />
+              <span>1st AD</span>
+            </label>
+            <label class="contact-option">
+              <input type="radio" name="inquiry" value="director" />
+              <span>Director</span>
+            </label>
+            <label class="contact-option">
+              <input type="radio" name="inquiry" value="other" />
+              <span>Something else</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <label
+          id="other-reason-field"
+          class="contact-field other-reason-field"
+          hidden
+        >
+          <span>What else can I help with?</span>
+          <input
+            id="other-reason"
+            name="otherReason"
+            type="text"
+            placeholder="Tell me what you need"
+          />
+        </label>
+
+        <button id="contact-submit" class="contact-submit" type="submit">
+          <span>Send inquiry</span>
+          <span aria-hidden="true">↗</span>
+        </button>
+        <p id="contact-status" class="contact-status" role="status">
+          Your inquiry will be sent to our team.
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const otherReasonField = document.querySelector<HTMLLabelElement>(
+      "#other-reason-field",
+    );
+    const otherReasonInput =
+      document.querySelector<HTMLInputElement>("#other-reason");
+    const inquiryOptions = document.querySelectorAll<HTMLInputElement>(
+      'input[name="inquiry"]',
+    );
+
+    inquiryOptions.forEach((option) => {
+      option.addEventListener("change", () => {
+        const isOther = option.value === "other" && option.checked;
+        if (otherReasonField) otherReasonField.hidden = !isOther;
+        if (otherReasonInput) otherReasonInput.required = isOther;
+      });
+    });
+  </script>
+</Base>
+
+<style>
+  .contact-page {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 0.92fr);
+    align-items: center;
+    gap: clamp(2.5rem, 7vw, 7rem);
+    width: min(1320px, calc(100% - 3rem));
+    min-height: 100dvh;
+    margin-inline: auto;
+    padding-block: 7rem 4rem;
+    color: #f2f2f2;
+  }
+
+  .contact-topbar {
+    position: absolute;
+    inset: 1.5rem 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .contact-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: #d4d4d4;
+    font-size: 0.875rem;
+    transition:
+      color 200ms ease,
+      transform 200ms ease;
+  }
+
+  .contact-home:hover {
+    color: #c6f432;
+    transform: translateX(-3px);
+  }
+
+  .contact-home span:first-child {
+    font-size: 1.25rem;
+  }
+
+  .contact-monogram {
+    color: #f2f2f2;
+    font-family: "Brush Script MT", "Lucida Handwriting", cursive;
+    font-size: 2rem;
+  }
+
+  .contact-intro {
+    padding-block: 2rem;
+    animation: contact-intro-in 800ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .contact-eyebrow {
+    margin: 0 0 1.25rem;
+    color: #c6f432;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .contact-intro h1 {
+    margin: 0;
+    color: #f7f7f7;
+    font-family: "Anton", Impact, sans-serif;
+    font-size: clamp(4rem, 8vw, 7.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    text-shadow: 0 8px 32px rgb(0 0 0 / 40%);
+  }
+
+  .contact-intro h1 span {
+    color: #c6f432;
+  }
+
+  .contact-intro-copy {
+    max-width: 28rem;
+    margin: 1.75rem 0 0;
+    color: #d0d0d0;
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    line-height: 1.7;
+  }
+
+  .contact-card {
+    padding: clamp(1.4rem, 3vw, 2.4rem);
+    border: 1px solid rgb(255 255 255 / 20%);
+    border-radius: 1rem;
+    background: rgb(12 12 12 / 64%);
+    box-shadow:
+      0 24px 80px rgb(0 0 0 / 38%),
+      inset 0 1px rgb(255 255 255 / 12%);
+    -webkit-backdrop-filter: blur(24px) saturate(135%);
+    backdrop-filter: blur(24px) saturate(135%);
+    animation: contact-card-float 7s ease-in-out infinite;
+    transition:
+      transform 350ms ease,
+      border-color 350ms ease,
+      box-shadow 350ms ease;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-6px);
+    border-color: rgb(198 244 50 / 48%);
+    box-shadow:
+      0 32px 90px rgb(0 0 0 / 46%),
+      0 0 32px rgb(198 244 50 / 10%);
+  }
+
+  .contact-card h2 {
+    margin: 0 0 1.4rem;
+    color: #f5f5f5;
+    font-size: clamp(1.25rem, 2vw, 1.55rem);
+    font-weight: 700;
+  }
+
+  .contact-card h2 span {
+    color: #c6f432;
+  }
+
+  .contact-direct-label,
+  .contact-form-intro,
+  .contact-options legend {
+    margin: 0;
+    color: #a7a7a7;
+  }
+
+  .contact-email {
+    display: inline-block;
+    margin-top: 0.35rem;
+    color: #f2f2f2;
+    text-decoration: underline;
+    text-decoration-color: rgb(198 244 50 / 60%);
+    text-underline-offset: 0.25em;
+  }
+
+  .contact-divider {
+    height: 1px;
+    margin: 1.5rem 0;
+    background: rgb(255 255 255 / 15%);
+  }
+
+  .contact-form-intro {
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-field-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .contact-field {
+    display: grid;
+    gap: 0.45rem;
+    color: #f0f0f0;
+    font-size: 0.875rem;
+  }
+
+  .contact-field input,
+  .contact-field textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 0.8rem 0.9rem;
+    border: 1px solid rgb(255 255 255 / 17%);
+    border-radius: 0.55rem;
+    outline: none;
+    background: rgb(10 10 10 / 48%);
+    color: #f2f2f2;
+    font: inherit;
+    transition:
+      border-color 200ms ease,
+      background-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .contact-field input::placeholder,
+  .contact-field textarea::placeholder {
+    color: #8c8c8c;
+  }
+
+  .contact-field input:hover,
+  .contact-field textarea:hover {
+    border-color: rgb(255 255 255 / 36%);
+    background: rgb(20 20 20 / 66%);
+  }
+
+  .contact-field input:focus,
+  .contact-field textarea:focus {
+    border-color: #c6f432;
+    background: rgb(20 20 20 / 78%);
+    box-shadow: 0 0 0 3px rgb(198 244 50 / 13%);
+  }
+
+  .contact-message-field {
+    margin-top: 1.25rem;
+  }
+
+  .contact-field textarea {
+    min-height: 6rem;
+    resize: vertical;
+  }
+
+  .contact-options {
+    min-width: 0;
+    margin: 1.35rem 0 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .contact-options legend {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .contact-option-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .contact-option {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 2.75rem;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid rgb(255 255 255 / 16%);
+    border-radius: 0.55rem;
+    background: rgb(10 10 10 / 32%);
+    color: #d9d9d9;
+    cursor: pointer;
+    font-size: 0.82rem;
+    transition:
+      border-color 200ms ease,
+      background-color 200ms ease,
+      color 200ms ease,
+      transform 200ms ease;
+  }
+
+  .contact-option:hover {
+    transform: translateY(-2px);
+    border-color: rgb(198 244 50 / 65%);
+    background: rgb(198 244 50 / 9%);
+    color: #fff;
+  }
+
+  .contact-option:has(input:checked) {
+    border-color: #c6f432;
+    background: rgb(198 244 50 / 13%);
+    color: #fff;
+  }
+
+  .contact-option input {
+    accent-color: #c6f432;
+  }
+
+  .other-reason-field {
+    margin-top: 1rem;
+  }
+
+  .contact-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    margin-top: 1.35rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgb(198 244 50 / 65%);
+    border-radius: 0.6rem;
+    background: linear-gradient(
+      110deg,
+      rgb(198 244 50 / 18%),
+      rgb(198 244 50 / 7%)
+    );
+    color: #eaffaa;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    transition:
+      transform 200ms ease,
+      background-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .contact-submit:hover,
+  .contact-submit:focus-visible {
+    transform: translateY(-2px);
+    background-color: rgb(198 244 50 / 12%);
+    box-shadow: 0 0 24px rgb(198 244 50 / 18%);
+  }
+
+  .contact-submit:focus-visible,
+  .contact-home:focus-visible,
+  .contact-monogram:focus-visible,
+  .contact-email:focus-visible {
+    outline: 2px solid #c6f432;
+    outline-offset: 4px;
+  }
+
+  .contact-status {
+    margin: 0.9rem 0 0;
+    color: #a7a7a7;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  @keyframes contact-intro-in {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes contact-card-float {
+    0%,
+    100% {
+      translate: 0 0;
+    }
+
+    50% {
+      translate: 0 -5px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .contact-page {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      width: min(720px, calc(100% - 2rem));
+      padding-top: 6rem;
+    }
+
+    .contact-intro {
+      padding-bottom: 0;
+    }
+
+    .contact-intro h1 {
+      font-size: clamp(3.7rem, 12vw, 6rem);
+    }
+
+    .contact-card {
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .contact-page {
+      width: min(100% - 1.25rem, 480px);
+      padding-top: 5.5rem;
+    }
+
+    .contact-field-row {
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+    }
+
+    .contact-option-list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contact-intro,
+    .contact-card {
+      animation: none;
+    }
+  }
+</style>

@@ -1,0 +1,21 @@
+---
+import "@fontsource/anton";
+import "@fontsource-variable/inter";
+import "../styles/global.css";
+
+interface Props { title?: string; description?: string }
+const { title = "potato-maniac", description = "Freelance Assistant Director" } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-dvh bg-bg font-sans text-text antialiased">
+    <slot />
+  </body>
+</html>
