@@ -1,0 +1,560 @@
+---
+import Base from "../layouts/Base.astro";
+import Skiper49 from "../components/ui/skiper49";
+import { Image } from "astro:assets";
+import landingImage from "../images/edited-photo.png";
+import aboutPlaceholder from "../images/about-placeholder.svg";
+import bluebandLogo from "../images/bb.jpg";
+import spotifyLogo from "../images/spoti.png";
+import roycoLogo from "../images/royco.jpg";
+import hfcbLogo from "../images/hfcb.png";
+import airtelLogo from "../images/airtel.jpeg";
+import shugaArtwork from "../images/shuga.jpeg";
+import paaArtwork from "../images/paa.jpg";
+import crimeAndJusticeArtwork from "../images/cnj2.jpg";
+import cokeStudioArtwork from "../images/coke.webp";
+import kollectiveArtwork from "../images/kolle.jpg";
+import theLightArtwork from "../images/light.jpg";
+import rafikiArtwork from "../images/rafiki.jpg";
+import bufisArtwork from "../images/bufis.jpg";
+import toloToloArtwork from "../images/tolo.jpg";
+
+const tvcItems = [
+  {
+    name: "BLUEBAND",
+    color: "#c6f432",
+    logoSrc: bluebandLogo.src,
+    youtubeUrl: "https://youtu.be/PGNnKZ_3o_4",
+  },
+  {
+    name: "Spotify",
+    color: "#1db954",
+    logoSrc: spotifyLogo.src,
+    youtubeUrl: null,
+  },
+  { name: "Royco", color: "#d71920", logoSrc: roycoLogo.src, youtubeUrl: null },
+  { name: "HFCB", color: "#1681c4", logoSrc: hfcbLogo.src, youtubeUrl: null },
+  {
+    name: "Airtel",
+    color: "#e31b23",
+    logoSrc: airtelLogo.src,
+    youtubeUrl: null,
+  },
+];
+
+const tvShowItems = [
+  {
+    name: "MTV Shuga",
+    color: "#f5c742",
+    logoSrc: shugaArtwork.src,
+    youtubeUrl: "https://youtu.be/pI8_P_h89R8",
+  },
+  {
+    name: "PAA: Born to Fly",
+    color: "#ec4899",
+    logoSrc: paaArtwork.src,
+    youtubeUrl: "https://youtu.be/e-gVjh6nS3M",
+  },
+  {
+    name: "Crime and Justice",
+    color: "#000000",
+    logoSrc: crimeAndJusticeArtwork.src,
+    youtubeUrl: "https://youtu.be/NFthP6kmx0Y",
+  },
+  {
+    name: "Coke Studio",
+    color: "#e31b23",
+    logoSrc: cokeStudioArtwork.src,
+    youtubeUrl: "https://youtu.be/ibx5sxmGOnw",
+  },
+];
+
+const internationalFilmItems = [
+  {
+    name: "The Kollective",
+    color: "#22c55e",
+    logoSrc: kollectiveArtwork.src,
+    youtubeUrl: null,
+  },
+  {
+    name: "The Light",
+    color: "#ffffff",
+    logoSrc: theLightArtwork.src,
+    youtubeUrl: null,
+  },
+  {
+    name: "Rafiki",
+    color: "#facc15",
+    logoSrc: rafikiArtwork.src,
+    youtubeUrl: null,
+  },
+  {
+    name: "Bufis",
+    color: "#d4af37",
+    logoSrc: bufisArtwork.src,
+    youtubeUrl: null,
+  },
+  {
+    name: "Tolo Tolo",
+    color: "#f97316",
+    logoSrc: toloToloArtwork.src,
+    youtubeUrl: null,
+  },
+];
+---
+
+<Base title="Chris Kimunya">
+  <div class="landing-shell min-h-dvh" id="landing">
+    <header class="fixed inset-x-0 top-0 z-50 px-4 py-4 sm:px-6 sm:py-6">
+      <nav
+        class="mx-auto flex max-w-screen-2xl items-center justify-between"
+        aria-label="Main navigation"
+      >
+        <div class="relative">
+          <button
+            id="menu-button"
+            type="button"
+            class="landing-icon p-2"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="landing-menu"
+          >
+            <svg
+              id="menu-icon"
+              viewBox="0 0 24 24"
+              width="32"
+              height="32"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+
+          <div id="landing-menu" class="landing-menu" hidden>
+            <a
+              class="landing-menu-link landing-menu-link-active"
+              href="#landing"
+            >
+              HOME
+            </a>
+            <a class="landing-menu-link" href="#about">
+              ABOUT
+            </a>
+            <a class="landing-menu-link" href="#tv-shows">
+              TV SHOWS
+            </a>
+            <a class="landing-menu-link" href="#international-films">
+              INTERNATIONAL FILMS
+            </a>
+            <a class="landing-menu-link" href="#experience">
+              EXPERIENCE
+            </a>
+            <a class="landing-menu-link" href="#education">
+              EDUCATION
+            </a>
+            <a class="landing-menu-link" href="#writing">
+              WRITING
+            </a>
+            <a class="landing-menu-link" href="/contact">
+              CONTACT
+            </a>
+          </div>
+        </div>
+
+        <a
+          href="#landing"
+          class="landing-signature"
+          aria-label="Chris Kimunya home"
+        >
+          C
+        </a>
+
+        <button
+          id="theme-toggle"
+          type="button"
+          class="theme-toggle"
+          aria-label="Toggle theme"
+        >
+          <span class="theme-toggle-thumb"></span>
+        </button>
+      </nav>
+    </header>
+
+    <main
+      id="landing-main"
+      class="relative flex min-h-dvh flex-col overflow-hidden"
+    >
+      <section
+        id="hero-section"
+        class="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 px-4"
+        aria-labelledby="hero-name"
+      >
+        <div id="hero-stage" class="hero-stage text-center">
+          <h1
+            id="hero-name"
+            class="hero-name"
+            aria-label="Chris Kimunya"
+          >
+            <img
+              class="hero-wordmark"
+              src="/cklogo.svg"
+              alt=""
+              aria-hidden="true"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </h1>
+
+          <button
+            id="hero-contact-trigger"
+            class="hero-profile"
+            type="button"
+            aria-label="Open contact form"
+            aria-controls="hero-contact-panel"
+            aria-expanded="false"
+          >
+            <Image
+              src={landingImage}
+              alt=""
+              class="h-full w-full object-cover"
+              widths={[128, 256, 433]}
+              sizes="(max-width: 640px) 82px, 11vw"
+              format="webp"
+              quality={75}
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </button>
+
+          <section
+            id="hero-contact-panel"
+            class="landing-contact-panel"
+            aria-labelledby="hero-contact-title"
+            aria-hidden="true"
+            inert
+          >
+            <div class="landing-contact-card">
+              <div class="landing-contact-heading">
+                <div>
+                  <p class="landing-contact-eyebrow">Get in touch</p>
+                  <h2 id="hero-contact-title">Let’s make it happen.</h2>
+                </div>
+                <button
+                  id="hero-contact-close"
+                  class="landing-contact-close"
+                  type="button"
+                  aria-label="Close contact form"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="22"
+                    height="22"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path d="m18 6-12 12M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              <form
+                class="landing-contact-form"
+                method="POST"
+                action="https://formspree.io/f/mvkabera"
+              >
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="New production inquiry"
+                />
+
+                <label>
+                  <span>Your name</span>
+                  <input
+                    id="hero-contact-name"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    placeholder="Your name"
+                    required
+                  />
+                </label>
+
+                <label>
+                  <span>Email</span>
+                  <input
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="Email"
+                    required
+                  />
+                </label>
+
+                <label class="landing-contact-message">
+                  <span>Message</span>
+                  <textarea
+                    name="message"
+                    rows="3"
+                    placeholder="Tell me about your project"
+                    required
+                  ></textarea>
+                </label>
+
+                <button
+                  class="landing-quiet-action landing-contact-submit"
+                  type="submit"
+                >
+                  <span>Send inquiry</span>
+                  <span aria-hidden="true">↗</span>
+                </button>
+              </form>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <p class="hero-tagline">Film Maker</p>
+
+      <a
+        class="landing-quiet-action resume-download"
+        href="/res/CHRIS_KIMUNYA_RESUME.pdf"
+        download
+      >
+        <span>Download resume</span>
+        <svg
+          viewBox="0 0 24 24"
+          width="18"
+          height="18"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path d="M12 3v12m-5-5 5 5 5-5M5 19h14" />
+        </svg>
+      </a>
+
+      <a href="#about" class="hero-scroll" aria-label="Scroll down">
+        <svg
+          viewBox="0 0 24 24"
+          width="28"
+          height="28"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </a>
+    </main>
+  </div>
+
+  <section id="about" class="about-section" aria-labelledby="about-title">
+    <div class="about-inner">
+      <Skiper49
+        items={tvcItems}
+        sectionLabel="Local TV Commercials"
+        titleId="about-title"
+        carouselId="tvc-carousel"
+        placeholderSrc={aboutPlaceholder.src}
+        client:visible
+      />
+    </div>
+  </section>
+
+  <section id="tv-shows" class="about-section" aria-labelledby="tv-shows-title">
+    <div class="about-inner">
+      <Skiper49
+        items={tvShowItems}
+        sectionLabel="TV Shows"
+        titleId="tv-shows-title"
+        carouselId="tv-shows-carousel"
+        placeholderSrc={aboutPlaceholder.src}
+        client:visible
+      />
+    </div>
+  </section>
+
+  <section
+    id="international-films"
+    class="about-section"
+    aria-labelledby="international-films-title"
+  >
+    <div class="about-inner">
+      <Skiper49
+        items={internationalFilmItems}
+        sectionLabel="International Films"
+        titleId="international-films-title"
+        carouselId="international-films-carousel"
+        placeholderSrc={aboutPlaceholder.src}
+        client:visible
+      />
+    </div>
+  </section>
+
+  <script>
+    const landingMain = document.querySelector<HTMLElement>("#landing-main");
+    const heroStage = document.querySelector<HTMLElement>("#hero-stage");
+    const contactTrigger = document.querySelector<HTMLButtonElement>(
+      "#hero-contact-trigger",
+    );
+    const contactPanel =
+      document.querySelector<HTMLElement>("#hero-contact-panel");
+    const contactCloseButton = document.querySelector<HTMLButtonElement>(
+      "#hero-contact-close",
+    );
+    const contactNameInput = document.querySelector<HTMLInputElement>(
+      "#hero-contact-name",
+    );
+    const focusPages = Array.from(
+      document.querySelectorAll<HTMLElement>(".landing-shell, .about-section"),
+    );
+    let focusedPage: HTMLElement | null = null;
+    let pageFocusFrame = 0;
+
+    const updatePageFocus = () => {
+      const viewportCenter = window.innerHeight / 2;
+      let nearestPage: HTMLElement | null = null;
+      let nearestDistance = Number.POSITIVE_INFINITY;
+
+      focusPages.forEach((page) => {
+        const bounds = page.getBoundingClientRect();
+        const isVisible =
+          bounds.bottom > 0 && bounds.top < window.innerHeight;
+        page.classList.toggle("is-page-visible", isVisible);
+        if (!isVisible) return;
+
+        const distance = Math.abs(
+          bounds.top + bounds.height / 2 - viewportCenter,
+        );
+        if (distance < nearestDistance) {
+          nearestPage = page;
+          nearestDistance = distance;
+        }
+      });
+
+      if (focusedPage && nearestPage && focusedPage !== nearestPage) {
+        const previousBounds = focusedPage.getBoundingClientRect();
+        const previousDistance = Math.abs(
+          previousBounds.top + previousBounds.height / 2 - viewportCenter,
+        );
+        if (
+          previousBounds.bottom > 0 &&
+          previousBounds.top < window.innerHeight &&
+          previousDistance <= nearestDistance + 24
+        ) {
+          nearestPage = focusedPage;
+        }
+      }
+
+      focusedPage = nearestPage;
+      focusPages.forEach((page) =>
+        page.classList.toggle("is-page-focused", page === focusedPage),
+      );
+      document.body.classList.add("scroll-focus-ready");
+    };
+
+    const schedulePageFocus = () => {
+      if (pageFocusFrame) return;
+      pageFocusFrame = window.requestAnimationFrame(() => {
+        pageFocusFrame = 0;
+        updatePageFocus();
+      });
+    };
+
+    window.addEventListener("scroll", schedulePageFocus, { passive: true });
+    window.addEventListener("resize", schedulePageFocus);
+    window.addEventListener("pageshow", schedulePageFocus);
+    schedulePageFocus();
+
+    const setContactOpen = (open: boolean) => {
+      if (!heroStage || !contactTrigger || !contactPanel) return;
+
+      heroStage.classList.toggle("contact-open", open);
+      landingMain?.classList.toggle("contact-open", open);
+      contactTrigger.setAttribute("aria-expanded", String(open));
+      contactPanel.setAttribute("aria-hidden", String(!open));
+      contactPanel.toggleAttribute("inert", !open);
+      schedulePageFocus();
+
+      if (open) {
+        contactNameInput?.focus({ preventScroll: true });
+      } else {
+        contactTrigger.focus({ preventScroll: true });
+      }
+    };
+
+    contactTrigger?.addEventListener("click", () => setContactOpen(true));
+    contactCloseButton?.addEventListener("click", () => setContactOpen(false));
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && heroStage?.classList.contains("contact-open")) {
+        setContactOpen(false);
+      }
+    });
+
+    const menuButton =
+      document.querySelector<HTMLButtonElement>("#menu-button");
+    const menu = document.querySelector<HTMLDivElement>("#landing-menu");
+    const menuIcon = document.querySelector<SVGElement>("#menu-icon");
+    const themeToggle =
+      document.querySelector<HTMLButtonElement>("#theme-toggle");
+
+    const setMenuOpen = (open: boolean) => {
+      if (!menu || !menuButton || !menuIcon) return;
+      menu.hidden = !open;
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      menuIcon.innerHTML = open
+        ? '<path d="M18 6 6 18M6 6l12 12" />'
+        : '<path d="M4 6h16M4 12h16M4 18h16" />';
+    };
+
+    menuButton?.addEventListener("click", (event) => {
+      event.stopPropagation();
+      setMenuOpen(menu?.hasAttribute("hidden") ?? true);
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!menu || !menuButton) return;
+      if (
+        !menu.hidden &&
+        event.target instanceof Node &&
+        !menu.contains(event.target) &&
+        !menuButton.contains(event.target)
+      ) {
+        setMenuOpen(false);
+      }
+    });
+
+    document
+      .querySelectorAll<HTMLAnchorElement>(".landing-menu-link")
+      .forEach((link) => {
+        link.addEventListener("click", () => setMenuOpen(false));
+      });
+
+    const applyTheme = (dark: boolean) => {
+      document.documentElement.classList.toggle("light", !dark);
+      themeToggle?.setAttribute(
+        "aria-label",
+        dark ? "Switch to light theme" : "Switch to dark theme",
+      );
+    };
+
+    let isDark = true;
+    applyTheme(isDark);
+
+    themeToggle?.addEventListener("click", () => {
+      isDark = !isDark;
+      applyTheme(isDark);
+    });
+  </script>
+</Base>
