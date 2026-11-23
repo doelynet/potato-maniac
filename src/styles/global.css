@@ -694,7 +694,14 @@ body.scroll-focus-ready
 }
 
 .brand-carousel-content {
-  width: 100%;
+  animation: fade-up 300ms ease both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 }
 
 .brand-carousel-shell {

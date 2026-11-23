@@ -2,3 +2,9 @@
 .env
 dist/
 node_modules/
+
+*-source.*
+*.mp4
+*.mov
+*.webm
+.venv-tools/
