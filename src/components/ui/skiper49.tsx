@@ -1,7 +1,6 @@
-import { motion } from "framer-motion";
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import type { Swiper as SwiperInstance } from "swiper";
+import type { SVGProps } from "react";
+import type {Swiper as SwiperInstance } from "swiper";
 import {
   EffectCoverflow,
   Keyboard,
@@ -14,6 +13,38 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+
+const ChevronLeftIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="m15 18-6-6 6-6" />
+  </svg>
+);
+
+const ChevronRightIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="m9 18 6-6-6-6" />
+  </svg>
+);
 
 type CarouselItem = {
   name: string;
@@ -95,12 +126,7 @@ const Skiper49 = ({
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, translateY: 20 }}
-      animate={{ opacity: 1, translateY: 0 }}
-      transition={{ duration: 0.3 }}
-      className="brand-carousel-content"
-    >
+    <div className="brand-carousel-content">
       <div className="about-heading">
         <div>
           <p className="about-kicker">{sectionLabel}</p>
@@ -252,7 +278,7 @@ const Skiper49 = ({
           </button>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
